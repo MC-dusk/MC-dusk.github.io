@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh">
+<body><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<style>
+	html,body{background:#000}
+	img.star{transition:all 4s ease 0s;position:fixed}
+</style>
+<script>
+function setsize(){
+	screenWidth=window.innerWidth;
+	screenHeight=window.innerHeight;
+}
+window.onresize=function(){setsize()};
+setsize();
+ids={"created":[],"moved":[]};
+function createStar(){
+	var star=document.createElement('img');
+	var id='star'+Date.now();
+	ids.created.push(id);
+	star.setAttribute('src','/image/star.png');
+	star.setAttribute('class','star');
+	star.setAttribute('id',id);
+	star.randomX=Math.floor(screenWidth/2-(Math.random()*screenWidth));
+	star.randomY=Math.floor(Math.random()*screenHeight/2+100);
+	star.style.top='-'+star.randomY+'px';
+	star.style.right=star.randomX+'px';
+	document.body.appendChild(star);
+	setTimeout(function(){moveStar(ids.created.shift())},100);
+	starCreateTimer=setTimeout(function(){createStar()},Math.floor(Math.random()*3000));
+}
+function moveStar(id){
+	ids.moved.push(id);
+	var star=document.getElementById(id);
+	if(screenHeight>screenWidth)moveDis=screenHeight;else moveDis=screenWidth;
+	star.style.top=0-star.randomY+(moveDis*10)+'px';
+	star.style.right=star.randomX+(moveDis/169*216*10)+'px';
+	setTimeout(function(){removeStar(ids.moved.shift())},1100);
+}
+function removeStar(id){
+	document.body.removeChild(document.getElementById(id));
+}
+createStar();
+</script></body>
+</html>
