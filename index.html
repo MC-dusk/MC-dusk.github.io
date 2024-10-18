@@ -23,7 +23,9 @@
 			</style>
 		<script type="text/javascript" defer>
 			if (window.top !== window.self) {
-			alert("IN IFRAME");
+				while (true) {
+					alert("IN IFRAME");
+				}
 			document.body.innerHTML = '404';
 			document.body.style.display = 'none';
 			window.top.location.href = 'about:blank';
