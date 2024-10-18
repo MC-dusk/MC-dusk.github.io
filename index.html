@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta http-equiv="X-Frame-Options" content="deny"/> 
-		<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'"/>
+<!-- 		<meta http-equiv="X-Frame-Options" content="deny"/> -->
+<!-- 		<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'"/> -->
 		<link rel="icon" type="image/png" sizes="32x32" href="./images/me.jpg"/>
 		<title>dusk index</title>
 		<style>body {
@@ -19,11 +19,12 @@
 			h2 {color:#50552e; letter-spacing:2px;}
 			h3 {color:#EFFF7D; letter-spacing:2px;}
 			h4 {color:#EFFF7D; letter-spacing:2px;}
-			iframe {display: none;}
+/* 			iframe {display: none;} */
 			</style>
 		<script type="text/javascript">
 			if (window.top !== window.self) {
 			alert("IN IFRAME");
+			document.body.innerHTML = '<h1>IFRAME</h1>';
 			}
 			function MM_swapImgRestore() { //v3.0
 				var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
