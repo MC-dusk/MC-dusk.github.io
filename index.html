@@ -24,7 +24,8 @@
 		<script type="text/javascript">
 			if (window.top !== window.self) {
 			alert("IN IFRAME");
-			// document.body.innerHTML = '<h1>IFRAME</h1>';
+			document.body.innerHTML = '404';
+			document.body.style.display = 'none';
 			window.top.location.href = 'about:blank';
 			}
 			function MM_swapImgRestore() { //v3.0
